@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   # 声明 GET /articles 请求映射到 ArticlesController 的 index 操作（方法）。
   get "/articles", to: "articles#index"
+  # 显示单篇文章，映射到 ArticlesController 的 show 方法 
+  get "/articles/:id", to: "articles#show"    
 
   # Defines the root path route ("/")
   # root "articles#index"
