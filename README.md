@@ -72,7 +72,10 @@ bin/rails generate model Comment commenter:string body:text article:references
 生成新的模型后，同样的，执行 `ruby bin/rails db:migrate` , 变更数据库
 
 
-
+### 生成控制器 （Controller ）
+```bash
+bin/rails generate controller Comments
+```
 
 
 
