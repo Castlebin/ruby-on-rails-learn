@@ -77,8 +77,12 @@ bin/rails generate model Comment commenter:string body:text article:references
 bin/rails generate controller Comments
 ```
 
-
-
+### 添加字段
+```bash 
+bin/rails generate migration AddStatusToArticles status:string
+```
+生成迁移文件，添加字段 status 到 articles 表中  
+同样的，需要再执行 `ruby bin/rails db:migrate` , 变更数据库
 
 ## 问题记录
 
