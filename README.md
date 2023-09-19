@@ -48,4 +48,11 @@ article.save
 
 ![保存成功的结果](./pic/rails_console.png)
 
+此时再查看一下 article ，会发现它已经有了 id、created_at、updated_at 这几个属性，这些都是数据库自动添加的。
+并且可以知道，这是更新到数据库后，这些数据自动添加到了 article 对象中。
+![article 对象](./pic/rails_console_2.png)
+
+
+我们去查看一下数据库 articles 表，也可以看到，数据库中已经有了这条数据。
+![数据库中的数据](./pic/db_articles.png)
 
