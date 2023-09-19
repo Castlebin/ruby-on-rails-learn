@@ -14,17 +14,7 @@
 
 <!-- 显示这篇文章所有的评论 -->
 <h2>Comments</h2>
-<% @article.comments.each do |comment| %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
-
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
-<% end %>
+<%= render @article.comments %>    <!-- 这将为 @article.comments 集合中的每个评论渲染 app/views/comments/_comment.html.erb 中的部分内容一次。迭代 comments，给_comment.html.erb 传递 comment 参数  -->
 
 <!-- 在文章详情页，添加一个增加评论的表单。这里的 form_with 调用使用了一个数组，它将构建一个嵌套路由，例如 /articles/1/comments  -->
 <h2>Add a comment:</h2>  
@@ -41,4 +31,3 @@
     <%= form.submit %>
   </p>
 <% end %>
-
