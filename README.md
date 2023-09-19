@@ -63,6 +63,15 @@ bin/rails routes
 ![rails 路由](./pic/rails_routes.png)
 
 
+### 生成模型，并与现有的模型关联
+```bash 
+bin/rails generate model Comment commenter:string body:text article:references
+```
+生成 Comment 模型，并与现有的模型 Article 关联，这里的关联是指，Comment 模型中有 article_id 字段，它是 Article 模型的主键。
+
+生成新的模型后，同样的，执行 `ruby bin/rails db:migrate` , 变更数据库
+
+
 
 
 
