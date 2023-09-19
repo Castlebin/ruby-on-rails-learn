@@ -56,3 +56,9 @@ article.save
 我们去查看一下数据库 articles 表，也可以看到，数据库中已经有了这条数据。
 ![数据库中的数据](./pic/db_articles.png)
 
+### 查看路由
+```bash
+bin/rails routes
+```
+![rails 路由](./pic/rails_routes.png)
+
