@@ -17,6 +17,11 @@
   </div>
 
   <div>
+    <%= form.label :status %><br>
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>     <!-- 添加 status 字段，默认为 public -->
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

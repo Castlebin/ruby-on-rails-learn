@@ -8,6 +8,10 @@
     <%= form.text_area :body %>
   </p>
   <p>
+    <%= form.label :status %><br>
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>    <!-- 添加 status 字段，默认为 public -->
+  </p>
+  <p>
     <%= form.submit %>
   </p>
 <% end %>
