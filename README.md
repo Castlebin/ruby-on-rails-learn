@@ -31,3 +31,9 @@ bin/rails db:migrate
 ```
 执行数据库迁移，将模型 Article 对应的数据库表创建出来
 
+### 打开 rails 控制台
+```bash
+bin/rails console
+```
+打开 rails 控制台，控制台是一个交互式编码环境，就像 irb 一样，但它也会自动加载 Rails 和我们的应用程序代码。
+
