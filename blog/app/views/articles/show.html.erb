@@ -2,7 +2,12 @@
 
 <p><%= @article.body %></p>
 
-<!-- 增加编辑的链接 -->
 <ul>
+  <!-- 编辑 -->
   <li><%= link_to "Edit", edit_article_path(@article) %></li>
+  <!-- 删除 -->
+  <li><%= link_to "Destroy", article_path(@article), data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  } %></li>
 </ul>

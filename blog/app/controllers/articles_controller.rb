@@ -47,6 +47,16 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # 删除资源比创建或更新资源更简单。它只需要一个路由和一个控制器操作。
+  # （ resources :articles ）已经提供了路由，它将 DELETE /articles/:id 请求映射到 ArticlesController 的 destroy 操作
+  # 所以，在 controller 中增加 destroy 方法
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+
+    redirect_to root_path, status: :see_other
+  end
+
   # 使用 article_params 做参数校验
   private
     def article_params
