@@ -18,16 +18,4 @@
 
 <!-- 在文章详情页，添加一个增加评论的表单。这里的 form_with 调用使用了一个数组，它将构建一个嵌套路由，例如 /articles/1/comments  -->
 <h2>Add a comment:</h2>  
-<%= form_with model: [ @article, @article.comments.build ] do |form| %>
-  <p>
-    <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
-  </p>
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<%= render 'comments/form' %>     <!-- 渲染 comments 下面的 _form.html.erb 模版 -->
