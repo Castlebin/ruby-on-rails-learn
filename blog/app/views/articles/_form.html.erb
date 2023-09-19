@@ -1,0 +1,22 @@
+<!-- form_with 是表单生成器，帮忙快速的创建表单 -->
+<%= form_with model: article do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% article.errors.full_messages_for(:title).each do |message| %>    <!-- 增加错误消息提示 -->
+      <div><span style="color:red;"><%= message %></span></div>          <!-- 红色 -->
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %><br>
+    <% article.errors.full_messages_for(:body).each do |message| %>     <!-- 增加错误消息提示 -->
+      <div><span style="color:red;"><%= message %></span></div>          <!-- 红色 -->
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

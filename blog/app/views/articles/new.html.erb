@@ -1,24 +1,5 @@
 <h1>New Article</h1>
 
-<!-- form_with 是表单生成器，帮忙快速的创建表单 -->
-<%= form_with model: @article do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <% @article.errors.full_messages_for(:title).each do |message| %>    <!-- 增加错误消息提示 -->
-      <div><span style="color:red;"><%= message %></span></div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %><br>
-    <% @article.errors.full_messages_for(:body).each do |message| %>     <!-- 增加错误消息提示 -->
-      <div><span style="color:red;"><%= message %></span></div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<!-- 文件名必须以下划线作为前缀，例如 _form.html.erb 。但在渲染时，引用它时不带下划线，例如 render "form" 。 -->
+<!-- _form.html.erb 中有一个变量 article , 这里在渲染时，使用 _form.html.erb ，并且将 @article 实例参数，作为 _form.html.erb 需要的 article 参数传递给它 -->
+<%= render "form", article: @article %>
