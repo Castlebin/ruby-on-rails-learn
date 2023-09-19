@@ -3,7 +3,9 @@
 <ul>
   <% @articles.each do |article| %>
     <li>
-      <a href="/articles/<%= article.id %>">   <!-- 增加超链接，方便从文章列表访问每一篇文章 -->
+      <!-- 使用了 resources 方法作为 路由配置之后，资源名 + _path 或者 _url，可以形成资源定位符 -->
+      <!-- article_path 帮助器返回 "/articles/#{article.id}" -->
+      <a href="<%= article_path(article) %>">
         <%= article.title %>
       </a>
     </li>
