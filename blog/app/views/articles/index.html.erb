@@ -3,7 +3,9 @@
 <ul>
   <% @articles.each do |article| %>
     <li>
-      <%= article.title %>     <!-- 简单的只显示所有 article 的标题 -->
+      <a href="/articles/<%= article.id %>">   <!-- 增加超链接，方便从文章列表访问每一篇文章 -->
+        <%= article.title %>
+      </a>
     </li>
   <% end %>
 </ul>
