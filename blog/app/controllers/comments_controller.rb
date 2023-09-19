@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+  http_basic_authenticate_with name: "dhh", password: "secret", only: :destroy
+
   # 增加评论，路由到 create 方法
   def create
     @article = Article.find(params[:article_id])  # 需要先定位到要关联的 Article，因为每条评论都得属于一个 Article
