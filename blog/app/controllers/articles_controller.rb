@@ -29,6 +29,24 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # 更新资源与创建资源非常相似。它们都是多步骤过程。首先，用户请求一个表单来编辑数据。然后，用户提交表单。如果没有错误，则资源将被更新。否则，表单将重新显示并显示错误消息，并重复该过程。
+  # 这些步骤通常由控制器的 edit 和 update 操作来处理
+  # edit 操作从数据库中获取文章，并将其存储在 @article 中，以便在构建表单时使用。默认情况下， edit 操作将呈现 app/views/articles/edit.html.erb 。
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  # update 操作从数据库中（重新）获取文章，并尝试使用经 article_params 过滤的提交表单数据进行更新。如果没有验证失败并且更新成功，则该操作会将浏览器重定向到文章的页面。否则，该操作将通过渲染 app/views/articles/edit.html.erb 重新显示表单（带有错误消息）。
+  def update
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   # 使用 article_params 做参数校验
   private
     def article_params
