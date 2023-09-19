@@ -3,11 +3,8 @@
 <ul>
   <% @articles.each do |article| %>
     <li>
-      <!-- 使用了 resources 方法作为 路由配置之后，资源名 + _path 或者 _url，可以形成资源定位符 -->
-      <!-- article_path 帮助器返回 "/articles/#{article.id}" -->
-      <a href="<%= article_path(article) %>">
-        <%= article.title %>
-      </a>
+      <!-- 使用 link_to 帮助器更进一步。 link_to 帮助器呈现一个链接，其第一个参数作为链接的文本，第二个参数作为链接的目标。如果我们传递一个模型对象作为第二个参数， link_to 将调用适当的路径助手将对象转换为路径。例如，如果我们传递一篇文章， link_to 将调用 article_path -->
+      <%= link_to article.title, article %>
     </li>
   <% end %>
 </ul>
