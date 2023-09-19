@@ -62,3 +62,17 @@ bin/rails routes
 ```
 ![rails 路由](./pic/rails_routes.png)
 
+
+
+
+
+
+
+## 问题记录
+
+### Destroy 不起作用，并没有发出 delete 请求，而是 get 请求？
+应该是项目初始化不完整，缺少组件。执行以下命令修复了
+```bash
+rails importmap:install
+rails turbo:install stimulus:install
+``` 
