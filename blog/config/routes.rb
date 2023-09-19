@@ -10,8 +10,10 @@ Rails.application.routes.draw do
 
   # Rails 提供了一个名为 resources 的方法，映射资源集合（例如文章）的所有常规路由。现在将上面两个 get 路由替换为 resources ： 
   # resources 方法还设置 URL 和路径辅助方法，我们可以使用它们来防止代码依赖于特定的路由配置。上面“前缀”列中的值加上后缀 _url 或 _path 形成这些助手的名称。例如，当给定一篇文章时， article_path 帮助器返回 "/articles/#{article.id}" 。我们可以用它来整理 app/views/articles/index.html.erb 中的链接
-  resources :articles   # 会包含 articles 所有的常规路由（包括 add、delete等），所以，不安全
-
+  #resources :articles   # 会包含 articles 所有的常规路由（包括 add、delete等），所以，不安全
+  resources :articles do
+    resources :comments            # 表示 Comment 是 Article 的嵌套资源
+  end
   # Defines the root path route ("/")
   # root "articles#index"
 end
