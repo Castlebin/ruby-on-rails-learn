@@ -12,8 +12,22 @@
   } %></li>
 </ul>
 
-<!-- 在文章详情页，添加一个增加评论的表单 -->
-<h2>Add a comment:</h2>
+<!-- 显示这篇文章所有的评论 -->
+<h2>Comments</h2>
+<% @article.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+
+<!-- 在文章详情页，添加一个增加评论的表单。这里的 form_with 调用使用了一个数组，它将构建一个嵌套路由，例如 /articles/1/comments  -->
+<h2>Add a comment:</h2>  
 <%= form_with model: [ @article, @article.comments.build ] do |form| %>
   <p>
     <%= form.label :commenter %><br>
