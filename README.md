@@ -37,3 +37,15 @@ bin/rails console
 ```
 打开 rails 控制台，控制台是一个交互式编码环境，就像 irb 一样，但它也会自动加载 Rails 和我们的应用程序代码。
 
+例如，打开它之后，我们手动建一个 Article 对象，然后保存到数据库中：
+```bash
+article = Article.new(title: "Hello Rails", body: "I am on Rails!")
+```
+```bash
+article.save
+```
+可以看到，控制台会输出保存的结果和执行的 SQL，如果保存成功，会返回 true，否则返回 false。
+
+![保存成功的结果](./pic/rails_console.png)
+
+
