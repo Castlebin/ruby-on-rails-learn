@@ -7,6 +7,14 @@ class CommentsController < ApplicationController
     redirect_to article_path(@article)   # 完成后，还是重定向到文章页
   end
 
+  # 删除评论，路由到 destory 方法
+  def destroy
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.find(params[:id])
+    @comment.destroy
+    redirect_to article_path(@article), status: :see_other
+  end
+
   private
     def comment_params
       params.require(:comment).permit(:commenter, :body, :status)
