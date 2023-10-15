@@ -23,4 +23,7 @@ Rails.application.routes.draw do
   # 示例：返回 json api 数据。 命令：curl http://localhost:3000/article/json/1
   get "article/json/:id", to: "articles#single"
 
+  # 示例：转发请求到其他服务器。 命令： curl http://localhost:3000/forward/tel/1508771234
+  get "forward/tel/:tel", to: "forward#forward_request"
+
 end
