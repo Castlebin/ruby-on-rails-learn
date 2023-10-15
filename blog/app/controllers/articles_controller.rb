@@ -1,9 +1,23 @@
 class ArticlesController < ApplicationController
   
-  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show, :all, :single]
 
   def index
     @articles = Article.all   # Article 继承了 ApplicationRecord，所以也有 all 方法
+  end
+
+  # 示例：返回 json api 数据。 命令：curl http://localhost:3000/article/json
+  # 以 json 格式返回所有文章
+  def all
+    @articles = Article.all
+    # render json: @articles 
+    render json: {code: 200, message: 'SUCCESS', data: @articles}, status: :ok
+  end
+
+  # 以 json 格式返回单篇文章。命令：curl http://localhost:3000/article/json/1
+  def single 
+    @article = Article.find(params[:id])
+    render json: {code: 200, data: @article}
   end
 
   def show

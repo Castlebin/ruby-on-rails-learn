@@ -16,4 +16,11 @@ Rails.application.routes.draw do
   end
   # Defines the root path route ("/")
   # root "articles#index"
+
+  # 示例：返回 json api 数据。 命令：curl http://localhost:3000/article/json
+  get "article/json", to: "articles#all"
+
+  # 示例：返回 json api 数据。 命令：curl http://localhost:3000/article/json/1
+  get "article/json/:id", to: "articles#single"
+
 end
